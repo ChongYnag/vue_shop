@@ -1,6 +1,6 @@
 <template>
   <!-- 添加用户的对话框 -->
-  <el-dialog title="提示" :visible.sync="addDialogVisible" width="50%" @close="close">
+  <el-dialog title="提示" :visible.sync="doalog.visible" width="50%" @close="close">
     <!-- 内容主体区域 -->
     <el-form :model="addForm" :rules="addFormRules" ref="addFormRef" label-width="70px">
       <el-form-item label="用户名" prop="username">
@@ -26,7 +26,10 @@
 
 <script>
 export default {
-  props: ['addDialogVisible', 'hideDialogVisible','getUsersList'],
+  props: ['doalog', 'hideDialogVisible','getUsersList'],
+  updated(){
+      console.log(this.doalog);
+  },
   data() {
     // 验证邮箱的规则
     var checkEmail = (rule, value, cb) => {
