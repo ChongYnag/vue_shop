@@ -201,7 +201,7 @@ export default {
   margin: 7px;
 }
 
-.bdtop {
+.bdtop { 
   border-top: 1px solid #eee;
 }
 

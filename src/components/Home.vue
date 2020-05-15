@@ -30,8 +30,8 @@
             <el-menu-item
               v-for="subItem in item.children"
               :key="subItem.id"
-              :index="'/'+item.path"
-              @click="saveNavState('/'+item.path)"
+              :index="'/'+subItem.path"
+              @click="saveNavState('/'+subItem.path)"
             >
               <template slot="title">
                 <i class="el-icon-menu"></i>
