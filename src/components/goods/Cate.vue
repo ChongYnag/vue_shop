@@ -43,9 +43,14 @@
         </template>
 
         <!-- 操作 -->
-        <template slot="opt">
+        <template slot="opt" slot-scope="scope">
           <el-button type="primary" icon="el-icon-edit" size="mini">编辑</el-button>
-          <el-button type="danger" icon="el-icon-delete" size="mini">删除</el-button>
+          <el-button
+            type="danger"
+            icon="el-icon-delete"
+            @click="removeCate(scope.row.cat_id)"
+            size="mini"
+          >删除</el-button>
         </template>
       </tree-table>
       <!-- 分页 -->
@@ -242,9 +247,31 @@ export default {
     },
     // 添加分类
     addCate() {
-      this.$refs.addCateFormRef.validate(valid => {
+      this.$refs.addCateFormRef.validate(async valid => {
         if (!valid) return
+        const { data: res } = await this.$http.post(
+          'categories',
+          this.addCateForm
+        )
+        if (res.meta.status !== 201) {
+          return this.$message.error('添加分类失败！')
+        }
+
+        this.$message.success('添加分类成功！')
+        this.getCateList()
+        this.addCateDialogVisible = false
       })
+    },
+    //删除分类
+    async removeCate(id) {
+      const { data: res } = await this.$http.delete(
+          `categories/${id}`
+        )
+        if (res.meta.status !== 200) {
+          return this.$message.error('删除分类失败！')
+        }
+        this.getCateList()
+        this.$message.success('删除分类成功！')
     }
   }
 }
