@@ -7,7 +7,7 @@
       <el-breadcrumb-item>商品分类</el-breadcrumb-item>
     </el-breadcrumb>
 
-    <!-- 卡片视图区域 -->
+    <!-- 卡片视图区域 --> 
     <el-card>
       <el-row>
         <el-col>
