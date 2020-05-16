@@ -19,3 +19,16 @@ html,body,#app{
     margin-top: 15px;
     font-size: 12px;
 }
+
+.el-steps {
+    margin: 15px 15px;
+}
+.el-step__title{
+    font-size: 12px;
+}
+.el-tabs--left, .el-tabs--right {
+    height: auto!important;
+}
+.ql-editor{
+    min-height: 300px;
+}

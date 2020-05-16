@@ -126,7 +126,7 @@ export default {
         label: 'cat_name',
         value: 'cat_id',
         children: 'children'
-      },
+      }, 
       // 动态参数列表数据
       manyTableData: [],
       // 静态属性列表数据
